@@ -1,0 +1,14 @@
+<div class="header">
+    <ul class="nav nav-pills pull-right">
+        <li class="active"><a href="#">ログアウト</a></li>
+    </ul>
+    <h3 class="text-muted">Remember the Milkcocoa</h3>
+</div>
+
+<input type="text" name="title" id="TaskInput" /><input type="button" id="TaskInputBtn" value="登録" />
+
+<ul>
+<% for (var i = 0; i < tasks.length; i++) { %>
+    <li><%- task.title %></li>
+<% } %>
+</ul>
