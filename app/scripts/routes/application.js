@@ -14,6 +14,8 @@ Application.Routers = Application.Routers || {};
         execute: function(callback, args){
             if ((!app.loaded) && (callback != this.login)){
                 if ((app.login === true) || (localStorage.getItem('remember_me') === 'remember')) {
+                    var profile = JSON.parse(localStorage.getItem('profile'));
+                    app.userid = localStorage.getItem('userid');
                     app.models = {};
                     app.models.taskModel = new Application.Models.Task();
                     app.collections = {};
@@ -24,17 +26,15 @@ Application.Routers = Application.Routers || {};
                     ], callback);
 
 
-                    var profile = JSON.parse(localStorage.getItem('profile'));
-                    app.userid = localStorage.getItem('userid');
                 } else {
                     app.router.navigate('login', {trigger: true});
                 }
             } else {
-                if (this.dashboardView) {
-                    this.dashboardView.cleanup();
+                if (this.loginView) {
+                    this.loginView.cleanup();
                 }
-                if (this.trackView) {
-                    this.trackView.cleanup();
+                if (this.appView) {
+                    this.appView.cleanup();
                 }
                 callback(this);
             }
@@ -60,6 +60,9 @@ Application.Routers = Application.Routers || {};
             this.appView = new Application.Views.App({
                 collection: {
                     task: app.collections.taskCollection
+                },
+                model: {
+                    task: app.models.taskModel
                 }
             });
             this.appView.render();

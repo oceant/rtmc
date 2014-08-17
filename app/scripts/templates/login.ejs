@@ -1,16 +1,43 @@
 <div class="container">
-
-    <form class="form-signin" role="form">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <input id="Email" type="email" class="form-control" placeholder="Email address" required autofocus>
-        <input id="Password" type="password" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-            <label>
-                <input id="RememberMe" type="checkbox" value="remember-me"> Remember me
-            </label>
+    <h2>Remember the Cocoa</h2>
+    <div class="row">
+        <div class="col-xs-6">
+            <form class="form-signin" role="form">
+                <legend>ログイン</legend>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input id="Email" type="email" class="form-control" placeholder="メールアドレス" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input id="Password" type="password" class="form-control" placeholder="パスワード" required>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input id="RememberMe" type="checkbox" value="remember"> ログインを記憶する
+                    </label>
+                </div>
+                <input type="button" class="btn btn-lg btn-primary btn-block" id="LoginBtn" value="ログイン" />
+            </form>
         </div>
-        <input type="button" class="btn btn-lg btn-primary btn-block" id="LoginBtn" value="ログイン" />
-        <span class="btn btn-lg btn-danger btn-block" id="AddUserBtn">ユーザー登録</span>
-    </form>
-    <p class="AreaLoadingContents">Loading...</p>
+        <div class="col-xs-6">
+            <form class="form-signin" role="form">
+                <legend>ユーザー登録</legend>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input id="AddEmail" type="email" class="form-control" placeholder="メールアドレス" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input id="AddPassword" type="password" class="form-control" placeholder="パスワード" required>
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input id="Confirm" type="password" class="form-control" placeholder="パスワード（確認）" required>
+                </div>
+                <span class="btn btn-lg btn-success btn-block" id="AddUserBtn">ユーザー登録</span>
+            </form>
+        </div>
+    </div>
+    <p class="AreaLoadingContents disnone">Loading...</p>
 </div> <!-- /container -->

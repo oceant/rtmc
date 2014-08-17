@@ -25,6 +25,12 @@ Application.Views = Application.Views || {};
         initialize: function () {
         },
 
+        cleanup: function() {
+            this.undelegateEvents();
+            $(this.el).empty();
+            this.stopListening();
+        },
+
         onLoginKeypress: function(e) {
             if(e.which == 13) {
                 this.onLogin();
@@ -32,8 +38,14 @@ Application.Views = Application.Views || {};
         },
 
         onAddUser: function(e){
-            var email = $('#Email').val();
-            var password = $('#Password').val();
+            var email = $('#AddEmail').val();
+            var password = $('#AddPassword').val();
+            var confirmpassword = $('#Confirm').val();
+
+            if (password !== confirmpassword) {
+                alert('パスワードが一致していません。');
+                return false;
+            }
             app.milkcocoa.addAccount(email, password, null, function(err, user) {
                 switch (err) {
                     case null:
